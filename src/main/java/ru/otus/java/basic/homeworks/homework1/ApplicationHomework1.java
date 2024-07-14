@@ -7,6 +7,7 @@ public class ApplicationHomework1 {
         //greetings();
         //checkSign();
         //selectColor();
+        compareNumbers();
     }
 
 
@@ -51,4 +52,15 @@ public class ApplicationHomework1 {
         }
     }
 
+//    (4) Реализуйте метод compareNumbers(), в теле которого объявите две int переменные k и f с любыми начальными значениями.
+//    Если k больше или равно f, то необходимо вывести в консоль сообщение “k >= f”, в противном случае “k < f”;
+
+    public static void compareNumbers(){
+        int k = 25, f = 20;
+        if (k >= f) {
+            System.out.println(k + " >= " + f);
+        } else {
+            System.out.println(k + " < " + f);
+        }
+    }
 }
