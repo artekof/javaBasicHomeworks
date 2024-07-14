@@ -14,7 +14,9 @@ public class ApplicationHomework1 {
         if (n == 1) {
             greetings();
         } else if (n == 2) {
-            checkSign();
+            int randA = (int)(Math.random()*30), randB = (int)(Math.random()*20);
+            System.out.println("a = " + randA + "\nb = " + randB);
+            checkSign(randA,randB,-20);
         } else if (n == 3) {
             int randData = (int)(Math.random()*25);
             System.out.println("data = " + randData);
@@ -45,14 +47,8 @@ public class ApplicationHomework1 {
 //    Метод должен посчитать их сумму, и если она больше или равна 0, то вывести в консоль сообщение
 //    “Сумма положительная”, в противном случае - “Сумма отрицательная”;
 
-    public static void checkSign(){
+    public static void checkSign(int a, int b, int c){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Введите число a:");
-        int a = sc.nextInt();
-        System.out.println("Введите число b:");
-        int b = sc.nextInt();
-        System.out.println("Введите число c:");
-        int c = sc.nextInt();
         int resultSum = a + b + c;
         if (resultSum >= 0){
             System.out.println("Сумма положительная");
