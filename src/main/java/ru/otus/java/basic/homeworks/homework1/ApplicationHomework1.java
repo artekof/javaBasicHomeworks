@@ -2,14 +2,36 @@ package ru.otus.java.basic.homeworks.homework1;
 
 import java.util.Scanner;
 
+//    (*) При запуске приложения, запросите у пользователя число от 1 до 5, и после ввода выполнения метод,
+//    соответствующий указанному номеру со случайным значением аргументов;
+//    Домашнее задание сдается через Pull Request!
+
 public class ApplicationHomework1 {
     public static void main(String[] args) {
-        //greetings();
-        //checkSign();
-        //selectColor();
-        //compareNumbers();
-        addOrSubtractAndPrint(10, 20, true);
-        addOrSubtractAndPrint(10, 20, false);
+        System.out.println("Введите число от 1 до 5 включительно");
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        if (n == 1) {
+            greetings();
+        } else if (n == 2) {
+            checkSign();
+        } else if (n == 3) {
+            int randData = (int)(Math.random()*25);
+            System.out.println("data = " + randData);
+            selectColor(randData);
+        } else if (n == 4) {
+            int randK = (int)(Math.random()*100);
+            int randF = (int)(Math.random()*100);
+            System.out.println("k = " + randK + "\nf = " + randF);
+            compareNumbers(randK,randF);
+        } else if (n == 5) {
+            int randInitValue = (int)(Math.random()*100);
+            int randDelta = (int)(Math.random()*100);
+            System.out.println("initValue = " + randInitValue + "\ndelta = " + randDelta);
+            addOrSubtractAndPrint(randInitValue,randDelta,true);
+        } else {
+            System.out.println("Введенное число не входит в требуемый интервал!");
+        }
     }
 
 
@@ -43,8 +65,7 @@ public class ApplicationHomework1 {
 //    Если data меньше 10 включительно, то в консоль должно быть выведено сообщение “Красный”,
 //    если от 10 до 20 включительно, то “Желтый”, если больше 20 - “Зеленый”;
 
-    public static void selectColor(){
-        int data = 21;
+    public static void selectColor(int data){
         if (data <= 10){
             System.out.println("Красный");
         } else if (data > 10 && data <= 20) {
@@ -57,8 +78,7 @@ public class ApplicationHomework1 {
 //    (4) Реализуйте метод compareNumbers(), в теле которого объявите две int переменные k и f с любыми начальными значениями.
 //    Если k больше или равно f, то необходимо вывести в консоль сообщение “k >= f”, в противном случае “k < f”;
 
-    public static void compareNumbers(){
-        int k = 25, f = 20;
+    public static void compareNumbers(int k, int f){
         if (k >= f) {
             System.out.println(k + " >= " + f);
         } else {
@@ -77,4 +97,5 @@ public class ApplicationHomework1 {
             System.out.println(initValue - delta);
         }
     }
+
 }
