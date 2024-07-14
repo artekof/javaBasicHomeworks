@@ -7,7 +7,9 @@ public class ApplicationHomework1 {
         //greetings();
         //checkSign();
         //selectColor();
-        compareNumbers();
+        //compareNumbers();
+        addOrSubtractAndPrint(10, 20, true);
+        addOrSubtractAndPrint(10, 20, false);
     }
 
 
@@ -61,6 +63,18 @@ public class ApplicationHomework1 {
             System.out.println(k + " >= " + f);
         } else {
             System.out.println(k + " < " + f);
+        }
+    }
+
+//    (5) Создайте метод addOrSubtractAndPrint(int initValue, int delta, boolean increment). Если increment = true,
+//    то метод должен к initValue прибавить delta и отпечатать в консоль результат, в противном случае - вычесть;
+//    Каждый метод последовательно вызовите из метода main();
+
+    public static void addOrSubtractAndPrint(int initValue, int delta, boolean increment) {
+        if (increment == true) {
+            System.out.println(initValue + delta);
+        } else {
+            System.out.println(initValue - delta);
         }
     }
 }
