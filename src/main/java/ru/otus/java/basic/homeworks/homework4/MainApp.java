@@ -4,6 +4,7 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.time.Year;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class MainApp {
     public static void main(String[] args) {
@@ -29,19 +30,21 @@ public class MainApp {
 //        }
 
         //Задание 2
-        String item = "Ball";
         Box box = new Box(20,20,20, "Red", false);
+        box.open();
         box.info();
-        box.setIsOpened(true);
-        box.add(item);
-        box.add(item);
-        box.remove(item);
-        box.setIsOpened(false);
-        box.add(item);
-        box.remove(item);
-        box.setIsOpened(true);
-        box.add(item);
-        //box.remove(item);
+        box.add("Мяч");
+        box.info();
+        box.add("Палочка");
+        box.info();
+        box.remove("Мяч");
+        box.info();
+        box.add("Браслет");
+        box.info();
+        //box.close();
+        box.remove("Ножницы");
+        box.info();
+        box.add("Камень");
         box.info();
     }
 }

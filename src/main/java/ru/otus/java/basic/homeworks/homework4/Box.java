@@ -8,7 +8,7 @@ public class Box {
     private int height;
     private String color;
     private boolean isOpened;
-    private String[] items;
+    private String[] items = new String[2];
 
     public int getLength() {
         return length;
@@ -35,15 +35,6 @@ public class Box {
         return isOpened;
     }
 
-    public void setIsOpened(boolean isOpened) {
-        this.isOpened = isOpened;
-        if (isOpened == true) {
-            System.out.println("Коробка открыта");
-        } else {
-            System.out.println("Коробока закрыта");
-        }
-    }
-
     public String[] getItems() {
         return items;
     }
@@ -53,7 +44,8 @@ public class Box {
         this.width = width;
         this.height = height;
         this.color = color;
-        this.isOpened = isOpened;
+        this.isOpened = false;
+
     }
 
     public void info() {
@@ -61,25 +53,44 @@ public class Box {
     }
 
     public void add(String item) {
-        if (items == null && isOpened == true) {
-            items = new String[]{item};
-            System.out.println("Коробка пустая и открыта, в нее добавлен предмет " + item);
-        } else if (isOpened != true) {
-            System.out.println("Коробока закрыта, положить в нее предмет невозможно!");
-        } else if (items != null && isOpened == true) {
-            System.out.println("В коробке лежит " + item + ", положить в нее предмет невозможно!");
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] == null && isOpened == true) {
+                items[i] = item;
+                System.out.println("Коробка открыта, в нее добавлен предмет " + item);
+                return;
+            } else if (isOpened != true) {
+                System.out.println("Коробока закрыта, положить в нее предмет невозможно!");
+                return;
+            }
         }
+        System.out.println("В коробке нет места!");
     }
 
     public void remove(String item) {
-        if (items != null && isOpened == true) {
-            items = null;
-            System.out.println("Предмет " + item + " удален из коробки");
-        } else if (isOpened != true) {
-            System.out.println("Коробока закрыта, достать из нее предмет невозможно!");
-        } else if (items == null) {
-            System.out.println("Коробка пустая, удалять нечего");
+        for (int i = 0; i < items.length; i++) {
+            if (items[i].equals(item) && isOpened == true) {
+                items[i] = null;
+                System.out.println("Предмет " + item + " удален из коробки");
+                return;
+            } else if (isOpened != true) {
+                System.out.println("Коробока закрыта, достать из нее предмет невозможно!");
+                return;
+            } else if (items == null) {
+                System.out.println("Коробка пустая, удалять нечего");
+                return;
+            }
         }
+        System.out.println("Убрать из коробки предмет " + item + " невозможно, т.к. его там нет!");
+    }
+
+    public void open(){
+        isOpened = true;
+        System.out.println("Коробка открыта!");
+    }
+
+    public void close(){
+        isOpened = false;
+        System.out.println("Коробка закрыта!");
     }
 }
 
