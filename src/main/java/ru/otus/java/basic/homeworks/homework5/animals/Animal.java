@@ -50,7 +50,8 @@ public class Animal {
     public int run(int distance){
         time = 0;
         int consumptionOnRun = 1;//Все животные на 1 метр бега тратят 1 ед выносливости
-        if (endurance - consumptionOnRun * distance < 0){
+        if (endurance - consumptionOnRun * distance <= 0){
+            endurance = 0;
             System.out.println("У " + name + " появилось состояние усталости");
             return -1;
         }
@@ -65,6 +66,7 @@ public class Animal {
     public int swim(int distance){
         time = 0;
         if (endurance - consumptionOnSwim * distance <= 0){
+            endurance = 0;
             System.out.println("У " + name + " появилось состояние усталости");
             return -1;
         }
