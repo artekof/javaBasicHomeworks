@@ -23,6 +23,8 @@ public class Application {
         human.enterTransport(car);
         human.move(1000,TypeOfTerrain.SWAMP,horse);
         human.info();
+        human.move(100,TypeOfTerrain.SWAMP,null);
+        human.move(1000,TypeOfTerrain.SWAMP,horse);
 
 
 

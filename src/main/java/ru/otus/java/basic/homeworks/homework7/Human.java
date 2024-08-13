@@ -18,10 +18,15 @@ public class Human {
     }
 
     public boolean move(int distance, TypeOfTerrain terrain, Transport transport){
-        if (currentTransport == null && transport.move(distance, terrain) == true || currentTransport == transport.toString()){
+        if (transport == null) {
+            currentTransport = null;
+            System.out.println("Человек прошел пешком");
+            return true;
+        }
+        else if (currentTransport == null && transport.move(distance, terrain) == true || currentTransport == transport.toString()){
             currentTransport = transport.toString();
             return true;
-        } else if (currentTransport != transport.toString() || currentTransport != null){
+        } else if (currentTransport != transport.toString() && currentTransport != null){
             System.out.println("Человек использует другой транспорт, сначала необходимо из него выйти!");
             return false;
         }

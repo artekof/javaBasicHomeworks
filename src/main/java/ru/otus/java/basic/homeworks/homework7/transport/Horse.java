@@ -24,7 +24,7 @@ public class Horse implements Transport {
             System.out.println("Лошадь не может перемещаться по данной местности");
             return false;
         }
-        System.out.println("Лошадь преодолел весь путь.");
+        System.out.println("Лошадь преодолела весь путь.");
         return true;
     }
 }
