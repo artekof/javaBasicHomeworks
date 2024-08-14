@@ -24,7 +24,7 @@ public class Car implements Transport {
             System.out.println("Машина преодолела весь путь. Уровень топлива упал до " + maxLevelGasoline + "л");
             return true;
         }
-        else if (maxLevelGasoline >= 0 && terrain != TypeOfTerrain.FIELD){
+        else if (terrain != TypeOfTerrain.FIELD){
             System.out.println("Машина не может перемещаться по данной местности!");
             return false;
         } else {

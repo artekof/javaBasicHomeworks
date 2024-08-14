@@ -15,8 +15,11 @@ public class Application {
 
 
         human.info();
+        human.move(100,TypeOfTerrain.FIELD, bicycle);
+        human.move(100,TypeOfTerrain.FIELD, bicycle);
         human.move(1000,TypeOfTerrain.SWAMP, rover);
         human.exitTransport(rover);
+        human.move(1000, TypeOfTerrain.FIELD, car);
         human.move(1000, TypeOfTerrain.FIELD, car);
         human.exitTransport(car);
         human.move(100,TypeOfTerrain.FIELD, bicycle);

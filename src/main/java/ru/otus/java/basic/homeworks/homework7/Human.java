@@ -22,8 +22,7 @@ public class Human {
             currentTransport = null;
             System.out.println("Человек прошел пешком");
             return true;
-        }
-        else if (currentTransport == null && transport.move(distance, terrain) == true || currentTransport == transport.toString()){
+        } else if ((currentTransport == null || currentTransport == transport.toString()) && transport.move(distance, terrain) == true) {
             currentTransport = transport.toString();
             return true;
         } else if (currentTransport != transport.toString() && currentTransport != null){
