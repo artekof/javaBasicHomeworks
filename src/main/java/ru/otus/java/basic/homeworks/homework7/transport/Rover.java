@@ -4,7 +4,7 @@ import ru.otus.java.basic.homeworks.homework7.*;
 
 public class Rover implements Transport {
     private int gasolineConsumption = 1; // Расход 1 л на 100 м
-    private int maxLevelGasoline = 100; //Объем бензобака в л
+    private int levelGasoline = 100; //Объем бензобака в л
 
 
 
@@ -19,13 +19,13 @@ public class Rover implements Transport {
 
     @Override
     public boolean move(int distance, TypeOfTerrain terrain){
-        maxLevelGasoline -= (gasolineConsumption * distance) / 100;
-        if (maxLevelGasoline >= 0){
-            System.out.println("Вездеход преодолел весь путь. Уровень топлива упал до " + maxLevelGasoline + "л");
+        levelGasoline -= (gasolineConsumption * distance) / 100;
+        if (levelGasoline >= 0){
+            System.out.println("Вездеход преодолел весь путь. Уровень топлива упал до " + levelGasoline + "л");
             return true;
         }
-        maxLevelGasoline = 0;
-        System.out.println("Не хватает топлива " + maxLevelGasoline + "л");
+        levelGasoline = 0;
+        System.out.println("Не хватает топлива " + levelGasoline + "л");
         return false;
     }
 }
