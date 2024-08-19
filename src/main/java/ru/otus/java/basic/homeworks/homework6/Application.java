@@ -6,7 +6,7 @@ public class Application {
         Plate plate1 = new Plate(1000);
 
         Cat[] cats = {
-                new Cat("Barsik", 50),
+                new Cat("Barsik", -50),
                 new Cat("Murzik", 300),
                 new Cat("Persik", 100),
                 new Cat("Pupsik", 70)

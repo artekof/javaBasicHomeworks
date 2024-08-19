@@ -27,7 +27,7 @@ public class Cat {
     }
 
     public boolean eat(Plate plate){
-        if (satiety == false && plate.reduceAmountFood(appetite)){
+        if (!satiety && plate.reduceFoodAmount(appetite)){
             satiety = true;
             System.out.println(name + " удалось покушать, он сытый");
         }
