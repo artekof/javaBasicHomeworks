@@ -12,8 +12,8 @@ public class Application {
         }
         System.out.println(arrayList);
 //        sumElements(arrayList);//2
-        overWriteList(5,arrayList);
-
+//        overwriteList(5,arrayList);
+        increaseValueList(5,arrayList);
 
 
     }
@@ -50,7 +50,7 @@ public class Application {
 //    Реализуйте метод, принимающий в качестве аргументов целое число и ссылку на список,
 //    метод должен переписать каждую заполненную ячейку списка указанным числом;
 
-    public static void overWriteList(int figure, ArrayList<Integer> arrayList){
+    public static void overwriteList(int figure, ArrayList<Integer> arrayList){
         for (int i = 0; i < arrayList.size(); i++) {
             arrayList.set(i,figure);
         }
@@ -60,4 +60,10 @@ public class Application {
 //    Реализуйте метод, принимающий в качестве аргументов целое число и ссылку на список,
 //    увеличивающий каждый элемент списка на указанное число;
 
+    public static void increaseValueList(int figure, ArrayList<Integer> arrayList){
+        for (int i = 0; i < arrayList.size(); i++) {
+            arrayList.set(i, figure + i);
+        }
+        System.out.println(arrayList);
+    }
 }
