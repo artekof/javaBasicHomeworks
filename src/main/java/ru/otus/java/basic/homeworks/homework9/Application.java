@@ -5,12 +5,15 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        //createArrayList(1,15);
+//        createArrayList(1,15);//1
         ArrayList<Integer> arrayList = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
             arrayList.add(i);
         }
-        sumElements(arrayList);
+        System.out.println(arrayList);
+//        sumElements(arrayList);//2
+        overWriteList(5,arrayList);
+
 
 
     }
@@ -47,6 +50,12 @@ public class Application {
 //    Реализуйте метод, принимающий в качестве аргументов целое число и ссылку на список,
 //    метод должен переписать каждую заполненную ячейку списка указанным числом;
 
+    public static void overWriteList(int figure, ArrayList<Integer> arrayList){
+        for (int i = 0; i < arrayList.size(); i++) {
+            arrayList.set(i,figure);
+        }
+        System.out.println(arrayList);
+    }
 
 //    Реализуйте метод, принимающий в качестве аргументов целое число и ссылку на список,
 //    увеличивающий каждый элемент списка на указанное число;
