@@ -35,26 +35,5 @@ public class Person {
                 ", id=" + id +
                 '}';
     }
+}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || o.getClass() != this.getClass()) {
-            return false;
-        }
-        Person persons = (Person) o;
-        return this.name.equals(persons.name) &&
-                this.id == persons.id &&
-                this.position.equals(persons.position);
-        }
-
-    @Override
-    public int hashCode () {
-        int hash = 10;
-        hash = 5 * hash + (this.name != null ? this.name.hashCode() : 0);
-        hash = 5 * hash + (int)this.id;
-        return (int) hash;
-        }
-    }

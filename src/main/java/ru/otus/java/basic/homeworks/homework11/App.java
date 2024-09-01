@@ -32,6 +32,8 @@ public class App {
 
         dataBase.isEmployee(12325L);
         dataBase.isEmployee(12321325L);
+        dataBase.isEmployee(12321335L);
+        dataBase.isEmployee(12321321L);
     }
 }
 

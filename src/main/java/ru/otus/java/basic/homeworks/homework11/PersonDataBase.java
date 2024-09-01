@@ -53,10 +53,11 @@ public class PersonDataBase {
 
     public boolean isEmployee(Long id){
         if (personMap.containsKey(id) &&
-                ((personMap.get(id).getPosition() != Position.MANAGER)
-                        || (personMap.get(id).getPosition() != Position.DIRECTOR)
-                        || (personMap.get(id).getPosition() != Position.BRANCH_DIRECTOR)
-                        || (!personMap.get(id).getPosition().equals(Position.SENIOR_MANAGER)))){
+                (!personMap.get(id).getPosition().equals(Position.MANAGER))
+                        && (!personMap.get(id).getPosition().equals(Position.DIRECTOR))
+                        && (!personMap.get(id).getPosition().equals(Position.BRANCH_DIRECTOR))
+                        && (!personMap.get(id).getPosition().equals(Position.SENIOR_MANAGER))){
+
             System.out.println("Сотрудник соответствует позиции инженера: " + personMap.get(id).getPosition());
             return true;
         }
@@ -76,7 +77,7 @@ public class PersonDataBase {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PersonDataBase dataBase = (PersonDataBase) o;
-        return Objects.equals(personMap, dataBase.personMap) && personMap.containsValue(dataBase) == personMap.containsValue(o);
+        return Objects.equals(personMap, dataBase.personMap);
     }
 
     @Override
