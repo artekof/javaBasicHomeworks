@@ -1,0 +1,78 @@
+--Создание таблицы с тестами
+
+create table javabasic.tests(
+	id serial4 NOT NULL,
+	test_name varchar(150),
+	constraint tests_pk PRIMARY KEY (id));
+
+select * from javabasic.tests
+
+
+insert into javabasic.tests (test_name) VALUES ('Тест по знанию основ языка программирования Java')
+
+--Создание и наполнение таблицы с вопросами (5 вопросов)
+
+create table javabasic.questions(
+	id serial4 NOT NULL,
+	question_value varchar(500) NOT NULL,
+	cor_answer_id int4 NOT NULL,
+	test_id int4 NOT NULL,
+	constraint questions_pk PRIMARY KEY (id));
+
+ALTER TABLE javabasic.questions
+ADD CONSTRAINT questions_fk FOREIGN KEY (test_id) REFERENCES javabasic.tests(id);
+
+INSERT INTO javabasic.questions (question_value, cor_answer_id, test_id) VALUES ('Какое значение arr[1].length в следующем массиве? int[][] arr = { {1, 2, 3, 4, 5}, { 6, 7, 8, 9, 10} }', 1, 1);
+INSERT INTO javabasic.questions (question_value, cor_answer_id, test_id) VALUES ('От какого класса наследуют все классы Java?', 1, 1);
+INSERT INTO javabasic.questions (question_value, cor_answer_id, test_id) VALUES ('Что сравнивает оператор == в объектах Java?', 1, 1);
+INSERT INTO javabasic.questions (question_value, cor_answer_id, test_id) VALUES ('Какой оператор используется для преждевременного завершения цикла?', 1, 1);
+INSERT INTO javabasic.questions (question_value, cor_answer_id, test_id) VALUES ('Какой метод используется для получения длины массива в Java?', 1, 1);
+
+UPDATE javabasic.questions SET question_value = 'От какого класса наследуютcя все классы Java?' where cor_answer_id = 5;
+UPDATE javabasic.questions SET cor_answer_id = 10 where question_value = 'Что сравнивает оператор == в объектах Java?';
+UPDATE javabasic.questions SET cor_answer_id = 14 where question_value = 'Какой оператор используется для преждевременного завершения цикла?';
+UPDATE javabasic.questions SET cor_answer_id = 18 where question_value = 'Какой метод используется для получения длины массива в Java?';
+
+select * from javabasic.questions
+
+--Создание и наполнение таблицы с ответами
+
+create table javabasic.answers(
+	id serial4 NOT NULL,
+	answer_value varchar(150) NOT NULL,
+	question_id int4 NOT NULL,
+	constraint answers_pk PRIMARY KEY (id));
+
+ALTER TABLE javabasic.answers
+ADD CONSTRAINT answers_fk FOREIGN KEY (question_id) REFERENCES javabasic.questions(id);
+
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('5', 1);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('10', 1);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('1', 1);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('8', 1);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('Object', 2);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('List', 2);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('Runtime', 2);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('Collection', 2);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('Значения', 3);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('Ссылки', 3);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('Хэш-код', 3);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('return', 4);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('contunue', 4);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('break', 4);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('length()', 5);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('size()', 5);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('getLength()', 5);
+INSERT INTO javabasic.answers (answer_value, question_id) VALUES ('length', 5);
+
+
+select * from javabasic.answers
+
+--Выборка с правильными ответами
+
+select t.test_name, q.question_value, a.answer_value from javabasic.tests t
+join javabasic.questions q
+	on t.id = q.test_id
+join javabasic.answers a
+	on q.id = a.question_id
+where a.id = q.cor_answer_id
