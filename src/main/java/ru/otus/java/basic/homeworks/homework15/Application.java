@@ -10,10 +10,10 @@ public class Application {
         Box<Apple> box2 = new Box<>();
         Box<Fruit> box3 = new Box<>();
 
-        //При создании коробок вес равен 0
-        box1.weight(); //коробка с апельсинами
-        box2.weight(); //коробка с яблоками
-        box3.weight(); //коробка с фруктами
+
+        box1.weight();
+        box2.weight();
+        box3.weight();
 
         box1.add(new Orange());
         box1.add(new Orange());
@@ -33,12 +33,13 @@ public class Application {
 
         System.out.println("Вес коробки со смешанными фруктами равен " + box3.weight());
 
-        box1.compare(box1);
+        box1.compare(box3);
         box2.compare(box3);
         box1.compare(box3);
 
+        System.out.println("Равны ли коробки по массе: " + box1.compare(box3));
+
         box1.moveFruitsToMixBox(box3);
-        box1.weight();
-        box3.weight();
+        System.out.println("Вес пересыпаемой коробки равен " + box1.weight() + ", вес смешанной коробки после пересыпания фруктов равен " + box3.weight());
     }
 }
